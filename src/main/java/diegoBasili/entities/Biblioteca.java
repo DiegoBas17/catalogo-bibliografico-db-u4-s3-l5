@@ -1,11 +1,10 @@
 package diegoBasili.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "biblioteca")
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Biblioteca {
     @Id
     private int codice_isbn;

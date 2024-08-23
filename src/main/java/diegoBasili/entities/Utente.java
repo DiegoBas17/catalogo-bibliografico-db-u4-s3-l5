@@ -3,17 +3,20 @@ package diegoBasili.entities;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.Set;
 
 @Entity
 @Table(name = "utente")
 public class Utente {
     @Id
     @GeneratedValue
-    @OneToMany
     private long numero_tessera;
     private String nome;
     private String cognome;
     private LocalDate data_di_nascita;
+    
+    @OneToMany(mappedBy = "utente")
+    private Set<Prestito> prestiti;
 
     /*Costruttore*/
     public Utente(String nome, String cognome, LocalDate data_di_nascita) {
