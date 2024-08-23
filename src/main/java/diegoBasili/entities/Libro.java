@@ -1,10 +1,9 @@
 package diegoBasili.entities;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "libro")
+/*@Table(name = "libro")*/
 public class Libro extends Biblioteca {
     private String autore;
     private String genere;
@@ -40,6 +39,6 @@ public class Libro extends Biblioteca {
         return "Libro{" +
                 "autore='" + autore + '\'' +
                 ", genere='" + genere + '\'' +
-                '}';
+                "} " + super.toString();
     }
 }

@@ -1,6 +1,7 @@
 package diegoBasili.dao;
 
 import diegoBasili.entities.Utente;
+import diegoBasili.exeptions.NotFoundEx;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 
@@ -19,4 +20,11 @@ public class UtenteDAO {
         System.out.println("l'utente" + utente.getCognome() + "è stato salvato");
     }
 
+    public Utente findById(int id) throws NotFoundEx {
+        Utente utente = em.find(Utente.class, id);
+        if (utente == null) {
+            throw new NotFoundEx(id);
+        }
+        return utente;
+    }
 }

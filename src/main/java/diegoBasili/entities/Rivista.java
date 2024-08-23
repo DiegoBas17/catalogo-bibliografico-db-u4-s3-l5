@@ -2,11 +2,14 @@ package diegoBasili.entities;
 
 import diegoBasili.enums.Periodicità;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "rivista")
 public class Rivista extends Biblioteca {
+    @Enumerated(EnumType.STRING)
     private Periodicità periodicita;
 
     /*Costruttore*/
@@ -30,6 +33,6 @@ public class Rivista extends Biblioteca {
     public String toString() {
         return "Rivista{" +
                 "periodicita=" + periodicita +
-                '}';
+                "} " + super.toString();
     }
 }
