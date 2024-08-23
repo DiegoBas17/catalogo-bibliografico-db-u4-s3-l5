@@ -13,6 +13,9 @@ public abstract class Biblioteca {
     private int numero_pagine;
 
     /*Costruttore*/
+    public Biblioteca() {
+    }
+
     public Biblioteca(int codice_isbn, String titolo, int anno_di_pubblicazione, int numero_pagine) {
         this.codice_isbn = codice_isbn;
         this.titolo = titolo;

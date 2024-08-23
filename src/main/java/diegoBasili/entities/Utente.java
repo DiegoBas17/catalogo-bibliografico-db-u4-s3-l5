@@ -14,11 +14,14 @@ public class Utente {
     private String nome;
     private String cognome;
     private LocalDate data_di_nascita;
-    
+
     @OneToMany(mappedBy = "utente")
     private Set<Prestito> prestiti;
 
     /*Costruttore*/
+    public Utente() {
+    }
+
     public Utente(String nome, String cognome, LocalDate data_di_nascita) {
         this.nome = nome;
         this.cognome = cognome;
