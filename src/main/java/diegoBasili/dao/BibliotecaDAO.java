@@ -29,16 +29,16 @@ public class BibliotecaDAO {
         System.out.println("l'elemento " + elemento_biblioteca.getTitolo() + "è stato salvato");
     }
 
-    public Biblioteca findById(int id) throws NotFoundEx {
-        Biblioteca elemento_biblioteca = em.find(Biblioteca.class, id);
+    public Biblioteca findByIsbn(int isbn) throws NotFoundEx {
+        Biblioteca elemento_biblioteca = em.find(Biblioteca.class, isbn);
         if (elemento_biblioteca == null) {
-            throw new NotFoundEx(id);
+            throw new NotFoundEx(isbn);
         }
         return elemento_biblioteca;
     }
 
-    public void findByIdAndDelete(int id) throws NotFoundEx {
-        Biblioteca elemento_biblioteca = findById(id);
+    public void findByIsbnAndDelete(int isbn) throws NotFoundEx {
+        Biblioteca elemento_biblioteca = findByIsbn(isbn);
         em.getTransaction().begin();
         em.remove(elemento_biblioteca);
         em.getTransaction().commit();
